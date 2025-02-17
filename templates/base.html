@@ -1,0 +1,29 @@
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+  <!-- Global CSS (applies to all pages) -->
+  <link
+    rel="stylesheet"
+    href="{{ url_for('static', filename='css/main.css') }}"
+  />
+
+  <title>
+    {% block title %}SmartTestAuto - AI Powered Test Automation{% endblock %}
+  </title>
+
+  {% block head %}{% endblock %}
+</head>
+
+<body>
+  <header>{% block header %}{% endblock %}</header>
+
+  <main>{% block body %}{% endblock %}</main>
+
+  <footer>{% block footer %}{% endblock %}</footer>
+
+  {% block scripts %}
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+  {% endblock %}
+</body>

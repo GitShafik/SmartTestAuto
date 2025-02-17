@@ -1,0 +1,171 @@
+{% extends "base.html" %} {% block title %}Home | SmartTestAuto{% endblock %} {%
+block header %}
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/main.css') }}"
+/>
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/Navbar.css') }}"
+/>
+
+<!-- <link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/main.css') }}"
+/> -->
+<div class="container">
+  <h1>SmartTestAuto</h1>
+  <p>Automate Tests with AI-Powered Intelligence</p>
+</div>
+{% endblock %} {% block body %}
+
+<nav class="inline-nav">
+  <ul class="menu">
+    <li class="dropdown">
+      <a href="#" class="dropdown-btn">Features</a>
+      <ul class="dropdown-content">
+        <li>
+          <a href="dashboard.html?feature=AutomatedTestingWorkflow"
+            >Automated Testing Workflow</a
+          >
+        </li>
+        <li>
+          <a href="dashboard.html?feature=AIPoweredTestAutomation"
+            >AI-Powered Test Automation</a
+          >
+        </li>
+        <li>
+          <a href="dashboard.html?feature=TestCoverageAnalysis"
+            >Test Coverage Analysis</a
+          >
+        </li>
+        <li>
+          <a href="dashboard.html?feature=BugDetectionReporting"
+            >Bug Detection & Reporting</a
+          >
+        </li>
+        <li>
+          <a href="dashboard.html?feature=ParallelTestingExecution"
+            >Parallel Testing Execution</a
+          >
+        </li>
+      </ul>
+    </li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#download">Download</a></li>
+  </ul>
+</nav>
+
+<!-- Navigation Bar (Inline Links) - Moved Below Blue Section -->
+<!-- 
+<nav class="inline-nav">
+  <div class="menu-btn">
+    <button class="dropdown-btn">Features</button>
+    <ul class="dropdown-content">
+      <li>
+        <a href="dashboard.html?feature=AutomatedTestingWorkflow"
+          >Automated Testing Workflow</a
+        >
+      </li>
+      <li>
+        <a href="dashboard.html?feature=AIPoweredTestAutomation"
+          >AI-Powered Test Automation</a
+        >
+      </li>
+      <li>
+        <a href="dashboard.html?feature=TestCoverageAnalysis"
+          >Test Coverage Analysis</a
+        >
+      </li>
+      <li>
+        <a href="dashboard.html?feature=BugDetectionReporting"
+          >Bug Detection & Reporting</a
+        >
+      </li>
+      <li>
+        <a href="dashboard.html?feature=ParallelTestingExecution"
+          >Parallel Testing Execution</a
+        >
+      </li>
+    </ul>
+  </div>
+  <div class="menu-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#download">Download</a></li>
+  </div>
+</nav> -->
+<!-- Sidebar Toggle Button -->
+<button class="menu-toggle">☰</button>
+
+<!-- Sidebar Menu -->
+<aside class="sidebar">
+  <nav class="sidebar-menu">
+    <ul>
+      <li><a href="#login">Login</a></li>
+      <li><a href="#settings">User Settings</a></li>
+      <li><a href="#privacy">Privacy</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</aside>
+
+<!-- Main Content -->
+<main class="container">
+  <!-- About Section -->
+  <section id="about">
+    <h2>About SmartTestAuto</h2>
+    <p>
+      Designed for modern software development, SmartTestAuto reduces manual
+      testing efforts while ensuring robust and reliable software delivery. Our
+      AI-driven platform adapts to your workflow, making it easier than ever to
+      integrate automated testing into your process.
+    </p>
+  </section>
+
+  <!-- Contact Form -->
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <p>
+      If you have questions or need assistance, please fill out the form below.
+    </p>
+
+    {% with messages = get_flashed_messages(with_categories=true) %} {% if
+    messages %}
+    <div class="flash-messages">
+      {% for category, message in messages %}
+      <div class="alert {{ category }}">{{ message }}</div>
+      {% endfor %}
+    </div>
+    {% endif %} {% endwith %}
+
+    <form action="/" method="POST">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required />
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required />
+
+      <label for="message">Message:</label>
+      <textarea id="message" name="message" rows="4" required></textarea>
+
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <!-- Download Section -->
+  <section id="download">
+    <h2>Download SmartTestAuto</h2>
+    <p>
+      Ready to transform your testing process? Download SmartTestAuto today and
+      harness the power of AI for your test automation needs.
+    </p>
+    <a href="#" class="download-btn">Download Now</a>
+  </section>
+</main>
+{% endblock %} {% block footer %}
+<div class="container">
+  <p>&copy; 2025 SmartTestAuto. All rights reserved.</p>
+</div>
+{% endblock %}

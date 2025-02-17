@@ -1,0 +1,144 @@
+/* Basic reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body styling */
+body {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.6;
+  background-color: #f8f9fa;
+  color: #333;
+  overflow-x: hidden; /* Prevents horizontal scroll */
+}
+
+/* Header styling */
+header {
+  background: #2f70b1;
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
+}
+header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+header p {
+  font-size: 1.2rem;
+}
+
+/* Sidebar styling */
+.sidebar {
+  width: 250px;
+  height: 100vh;
+  position: fixed;
+  left: -100%; /* Ensures it's completely hidden initially */
+  top: 0;
+  background: #333;
+  color: white;
+  transition: left 0.3s ease-in-out;
+  padding-top: 20px;
+}
+
+.sidebar.active {
+  left: 0;
+}
+
+.sidebar-menu ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.sidebar-menu li {
+  padding: 10px;
+  width: 100%;
+}
+
+.sidebar-menu ul li a {
+  color: white;
+  text-decoration: none;
+  display: block;
+  padding: 10px;
+}
+
+.sidebar-menu ul li a:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Sidebar Toggle Button */
+.menu-toggle {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 24px;
+  z-index: 1000;
+}
+
+/* Dropdown Menu Fixes */
+.sidebar-menu li {
+  position: relative;
+}
+
+.dropdown-content {
+  display: none;
+  position: relative; /* Ensures it stays inside the sidebar */
+  background: #444;
+  width: 100%;
+  padding-left: 10px;
+}
+
+.sidebar-menu li:hover .dropdown-content,
+.dropdown-content.show {
+  display: block;
+}
+
+/* Main container */
+.container {
+  width: 90%;
+  max-width: 1100px;
+  margin: 20px auto;
+  padding: 0 15px;
+}
+
+/* Section styling */
+section {
+  background: #fff;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Footer styling */
+footer {
+  background: #343a40;
+  color: #fff;
+  text-align: center;
+  padding: 20px 0;
+}
+
+#contact form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 60%;
+  padding: 5px;
+}
+/* Responsive Fixes */
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+  }
+  nav ul li {
+    margin: 10px 0;
+  }
+  .container {
+    width: 95%;
+  }
+}
