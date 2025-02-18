@@ -19,9 +19,12 @@ nav.inline-nav .menu > li {
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: white;
+  background-color: rgb(203, 202, 202);
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
+  width: max-content; /* dropdown as wide as it needs to be */
+  min-width: 200px; /* dropdown has a minimum width */
+  padding: 5px 0; /* Adds space inside dropdown */
 }
 
 .dropdown:hover .dropdown-content {
@@ -30,9 +33,12 @@ nav.inline-nav .menu > li {
 
 .dropdown-content a {
   color: black;
-  padding: 12px 16px;
+  padding: 10px 16px;
   text-decoration: none;
   display: block;
+  font-size: 14px;
+  font-weight: bold;
+  white-space: nowrap;
 }
 
 .dropdown-content a:hover {
@@ -45,4 +51,10 @@ nav.inline-nav .menu > li {
   color: inherit;
   font: inherit;
   cursor: pointer;
+}
+
+.dropdown-content li {
+  list-style: none; /* Ensures no bullets */
+  padding: 0;
+  margin: 0;
 }

@@ -25,21 +25,37 @@ header h1 {
   font-size: 2.5rem;
   margin-bottom: 10px;
 }
+
+h2 {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 8px;
+}
+
+h2::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 4px;
+  background-color: #ffcc00; /* Yellow line */
+  margin: 8px auto 0;
+}
 header p {
   font-size: 1.2rem;
 }
 
 /* Sidebar styling */
 .sidebar {
+  position: absolute;
+  top: 60px;
   width: 250px;
   height: 100vh;
   position: fixed;
-  left: -100%; /* Ensures it's completely hidden initially */
-  top: 0;
+  left: -100%; /* Hide the sidebar by default */
   background: #333;
   color: white;
   transition: left 0.3s ease-in-out;
-  padding-top: 20px;
+  padding-top: 10px;
 }
 
 .sidebar.active {
@@ -141,4 +157,71 @@ footer {
   .container {
     width: 95%;
   }
+}
+.flash-messages {
+  margin-bottom: 15px;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.alert.success {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+  padding: 10px;
+  margin-bottom: 15px;
+}
+
+.alert.error {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+  padding: 10px;
+  margin-bottom: 15px;
+}
+
+button {
+  background-color: #073464;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background-color: #0283ec;
+}
+
+.input-field {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.card {
+  padding: 15px;
+  margin: 10px 0;
+  background: #e3e1e1cb;
+  border-left: 5px solid #007bff;
+}
+.download-btn {
+  display: inline-block;
+  background-color: #cda400;
+  color: black;
+  padding: 12px 20px;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  border: none;
+}
+
+.download-btn:hover {
+  background-color: #ffcd07;
 }

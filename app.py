@@ -7,7 +7,7 @@ app.secret_key = "supersecretkey"
 # MongoDB Connection
 client = pymongo.MongoClient("mongodb://localhost:27017/")
 db = client["smarttestauto"]
-messages = db["messages"] 
+messages = db["messages"]  
 
 @app.route("/", methods=["GET", "POST"])
 def contact():
@@ -19,10 +19,10 @@ def contact():
         if all([name, email, message]):
             try:
                 messages.insert_one({"name": name, "email": email, "message": message})  # ✅ Using `messages`
-                print("Message saved to MongoDB!")
+                print(" Message saved to MongoDB!")  
                 flash("Your message has been sent successfully!", "success")
             except Exception as e:
-                print(f" Database Insert Error: {e}")
+                print(f" Database Insert Error: {e}") 
                 flash("Failed to send message. Please try again.", "error")
         else:
             flash("Please fill in all fields.", "error")

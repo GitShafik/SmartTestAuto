@@ -113,6 +113,23 @@ block header %}
 
 <!-- Main Content -->
 <main class="container">
+  <script>
+    function toggleDropdown(id) {
+      const dropdown = document.getElementById(id);
+      dropdown.style.display =
+        dropdown.style.display === "block" ? "none" : "block";
+    }
+
+    // 🔹 Auto-hide flash messages after 3 seconds
+    document.addEventListener("DOMContentLoaded", function () {
+      setTimeout(function () {
+        let flashMessages = document.querySelector(".flash-messages");
+        if (flashMessages) {
+          flashMessages.style.display = "none";
+        }
+      }, 5000);
+    });
+  </script>
   <!-- About Section -->
   <section id="about">
     <h2>About SmartTestAuto</h2>
@@ -131,6 +148,7 @@ block header %}
       If you have questions or need assistance, please fill out the form below.
     </p>
 
+    <!-- 🔹 MOVED FLASH MESSAGE INSIDE CONTACT FORM SO IT APPEARS ABOVE -->
     {% with messages = get_flashed_messages(with_categories=true) %} {% if
     messages %}
     <div class="flash-messages">
@@ -139,6 +157,7 @@ block header %}
       {% endfor %}
     </div>
     {% endif %} {% endwith %}
+    <!-- 🔹 END OF FLASH MESSAGE SECTION -->
 
     <form action="/" method="POST">
       <label for="name">Name:</label>
