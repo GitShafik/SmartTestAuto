@@ -57,5 +57,5 @@ stages:
             inputs:
               azureSubscription: 'skcicd'
               appType: 'webApp'
-              appName: '<Sk-DevOps>'
+              appName: 'SmartTestAuto'
               package: '$(Pipeline.Workspace)/drop/pythonapp.zip'
