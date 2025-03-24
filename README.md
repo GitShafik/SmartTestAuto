@@ -2,7 +2,7 @@
 
 ---
 
-SmartTestAuto streamlines test automation in a smart way, offering **precision, speed, and AI-driven insights** for better software quality. 🧪⚡⚡
+SmartTestAuto streamlines test automation in a smart way, offering **precision, speed, and AI-driven insights** for better software quality. 🧪⚡
 This application is built on **Flask** and connected to **MongoDB**.  
 Upcoming updates will introduce **Machine Learning (ML)** features to enhance test automation capabilities.
 
