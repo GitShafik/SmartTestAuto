@@ -5,9 +5,9 @@ app = Flask(__name__)
 app.secret_key = "supersecretkey"
 
 # MongoDB Connection
-client = pymongo.MongoClient("mongodb://localhost:27017/")
-db = client["smarttestauto"]
-messages = db["messages"]  
+# client = pymongo.MongoClient("mongodb://localhost:27017/")
+# db = client["smarttestauto"]
+# messages = db["messages"]  
 
 @app.route("/", methods=["GET", "POST"])
 def contact():
@@ -32,4 +32,4 @@ def contact():
     return render_template("index.html")
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run
