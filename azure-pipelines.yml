@@ -1,0 +1,61 @@
+trigger:
+- main
+- development
+
+stages:
+# -----------------------
+- stage: Build
+  jobs:
+  - job: Build
+    displayName: 'Build Python App'
+    pool:
+      vmImage: 'ubuntu-latest'
+    steps:
+    - task: UsePythonVersion@0
+      inputs:
+        versionSpec: '3.13'
+        addToPath: true
+
+    - script: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+      displayName: 'Install dependencies'
+
+    - script: |
+        echo "No build step for Flask app"
+      displayName: 'Build (placeholder)'
+
+    - task: ArchiveFiles@2
+      inputs:
+        rootFolderOrFile: '$(System.DefaultWorkingDirectory)'
+        includeRootFolder: false
+        archiveType: 'zip'
+        archiveFile: '$(Build.ArtifactStagingDirectory)/pythonapp.zip'
+        replaceExistingArchive: true
+      displayName: 'Archive project files'
+
+    - task: PublishBuildArtifacts@1
+      inputs:
+        PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+        ArtifactName: 'drop'
+        publishLocation: 'Container'
+
+# -----------------------
+- stage: Deploy
+  jobs:
+  - deployment: DeployWebApp
+    displayName: 'Deploy to Azure Web App'
+    environment: 'production'
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          - download: current
+            artifact: drop
+
+          - task: AzureWebApp@1
+            inputs:
+              azureSubscription: 'skcicd'
+              appType: 'webApp'
+              appName: 'SmartTestAuto'
+              package: '$(Pipeline.Workspace)/drop/pythonapp.zip'
